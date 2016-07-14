@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rabbit Dashboard</title>
+  </head>
+  <body>
+    <h2>Meet All the Rabbits!</h2>
+    <div id="input">
+      <% for (var rabbit in rabbits){ %>
+          <p>Name: <%= rabbits[rabbit].name %>, age: <%= rabbits[rabbit].age %><a href="/rabbit/<%= rabbits[rabbit]._id %>" method='get'> Show</a> | <a href="/rabbit/<%= rabbits[rabbit].id %>/edit" method="get"> Edit</a> | <form method="post" action="/rabbits/<%= rabbits[rabbit].id %>/destroy"><input type='submit' value="Delete <%= rabbits[rabbit].name %>"></form></p>
+      <% } %>
+      <a href="/rabbit/new" method="get">Add a New Rabbit</a>
+    </div>
+  </body>
+</html>
